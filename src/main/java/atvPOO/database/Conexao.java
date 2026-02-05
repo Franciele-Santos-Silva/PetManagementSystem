@@ -27,7 +27,6 @@ public class Conexao {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         return null;
     }
 }
