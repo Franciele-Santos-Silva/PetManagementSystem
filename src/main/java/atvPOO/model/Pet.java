@@ -11,7 +11,7 @@ public class Pet {
     public Pet(){
     }
 
-    public Pet(String nome, String tipo, int idade, double peso, String nome_do_dono, boolean estVacinado){
+    public Pet(String nome, String tipo, int idade, double peso, String nome_do_dono, boolean estaVacinado){
         this.nome = nome;
         this.tipo = tipo;
         this.idade = idade;
@@ -40,7 +40,7 @@ public class Pet {
         return idade;
     }
 
-    public void setIdade(int Idade){
+    public void setIdade(int idade){
         this.idade = idade;
     }
 

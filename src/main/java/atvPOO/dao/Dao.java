@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface Dao {
 
-    void inserir(Pet pet);
+    public void inserir(Pet pet);
+
     List<Pet> listar();
 
 }

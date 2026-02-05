@@ -10,14 +10,16 @@ import java.util.Properties;
 public class Conexao {
 
     public static Connection getConnection() throws RuntimeException {
-        Properties dbProperties = new Properties();
 
         try (InputStream input = Conexao.class.getClassLoader().getResourceAsStream("db.properties")) {
-            dbProperties.load(input);
-
             if(input == null){
                 throw new RuntimeException("Arquivo db.properties não encontrado");
             }
+
+            Properties dbProperties = new Properties();
+
+            dbProperties.load(input);
+
 
             String url = dbProperties.getProperty("db.url");
             String username = dbProperties.getProperty("db.username");

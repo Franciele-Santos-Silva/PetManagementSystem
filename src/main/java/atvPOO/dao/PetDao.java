@@ -4,16 +4,18 @@ import atvPOO.database.Conexao;
 import atvPOO.model.Pet;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-public class PetDao implements  Dao{
+public class PetDao implements Dao{
 
+    //INSERIR
+    @Override
     public void inserir(Pet pet) {
         String sql = """
-                NSERT INTO pets(nome, tipo, idade, peso, nome_do_domo, estaVacinado )   SELECT(?,?,?,?,?,?);
+                insert into pet(nome, tipo, idade, peso, nome_do_dono, estaVacinado ) 
+                values (?,?,?,?,?,?);
                 """;
 
         try(Connection conn = Conexao.getConnection();
@@ -26,19 +28,26 @@ public class PetDao implements  Dao{
             stmt.setString(5, pet.getNome_do_dono());
             stmt.setBoolean(6, pet.isEstaVacinado());
 
-            stmt.execute();
-            stmt.close();
-
+            stmt.executeUpdate();
 
         } catch (SQLException e) {
+            System.out.println("Erro ao inserir pet: " + e.getMessage());
             e.printStackTrace();
         }
-
-
     }
 
     @Override
     public List<Pet> listar() {
         return List.of();
     }
+
+
+//    @Override
+//    public List<Pet> listar() {
+
+//        List<Pet> lista = new ArrayList<>();
+//
+//        String sql = "SELECT * FROM pet";
+//
+//    }
 }
