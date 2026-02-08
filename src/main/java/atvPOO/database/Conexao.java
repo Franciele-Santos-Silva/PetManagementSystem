@@ -20,7 +20,6 @@ public class Conexao {
 
             dbProperties.load(input);
 
-
             String url = dbProperties.getProperty("db.url");
             String username = dbProperties.getProperty("db.username");
             String password = dbProperties.getProperty("db.password");
