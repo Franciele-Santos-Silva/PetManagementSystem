@@ -35,46 +35,42 @@ public class PetDao implements Dao{
         }
     }
 
-    @Override
-    public List<Pet> listar() {
-
-        List<Pet> lista = new ArrayList<>();
-        String sql = "SELECT * FROM pet";
-
-        try(
-                Connection conn = Conexao.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                ) {
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()){
-
-                Pet pet = new Pet();
-
-                stmt.setInt()
-
-            }
-
-
-
-
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        return lista;
-    }
-
-    @Override
-    public void deletar(int id) {
-
-    }
-
-    @Override
-    public void atualizar(Pet pet) {
-
-    }
+//    @Override
+//    public List<Pet> listar() {
+//
+//        List<Pet> lista = new ArrayList<>();
+//        String sql = "SELECT * FROM pet";
+//
+//        try(
+//                Connection conn = Conexao.getConnection();
+//                PreparedStatement stmt = conn.prepareStatement(sql);
+//                ) {
+//            ResultSet rs = stmt.executeQuery();
+//            while (rs.next()){
+//
+//                Pet pet = new Pet();
+//
+//                stmt.setInt()
+//
+//            }
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//
+//        return lista;
+//    }
+//
+//    @Override
+//    public void deletar(int id) {
+//
+//    }
+//
+//    @Override
+//    public void atualizar(Pet pet) {
+//
+//    }
 
 
 }

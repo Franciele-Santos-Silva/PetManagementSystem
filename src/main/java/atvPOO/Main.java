@@ -18,9 +18,9 @@ public class Main {
             System.out.println("Erro ao conectar" );
         }
 
-        Pet cachorro = new Pet("Mark", "Cachorro", 1, 2.5, "Franciele", true);
+        Pet gato = new Pet("Mar", "Gato", 1, 2.5, "Francinete", false);
         PetDao dao = new PetDao();
-        dao.inserir(cachorro);
+        dao.inserir(gato);
 
 
     }
