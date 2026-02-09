@@ -68,11 +68,16 @@ public class Pet {
         this.estaVacinado = estaVacinado;
     }
 
-    public void apresentar(){
-
+    public String apresentar() {
+        return "Pet{" +
+                "nome='" + nome + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", idade=" + idade +
+                ", peso=" + peso +
+                ", nome_do_dono='" + nome_do_dono + '\'' +
+                ", estaVacinado=" + estaVacinado +
+                '}';
     }
-
-
 }
 
 
