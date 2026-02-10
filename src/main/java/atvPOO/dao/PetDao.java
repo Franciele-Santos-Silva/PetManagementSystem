@@ -62,19 +62,36 @@ public class PetDao implements Dao{
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Erro listar pets" +e.getMessage());
         }
         return lista;
     }
 
     @Override
     public void deletar(int id) {
+        String sql = """
+                delete from pet where id=?;
+                """;
 
+        try(Connection conn = Conexao.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setInt(1, id);
+
+            stmt.executeUpdate();
+
+            System.out.println("Deletado com sucesso!");
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao deletar pet" +e.getMessage());
+        }
     }
 
     @Override
     public void atualizar(Pet pet) {
-
+        String sql = """
+                update from pet set nome=?, tipo=?, idade=?, peso=?, nome_do_dono=?, estaVacinado=? where id=? 
+                """;
     }
 
 
