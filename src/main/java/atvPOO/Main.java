@@ -12,16 +12,10 @@ public class Main {
 
         Connection conn = Conexao.getConnection();
 
-        if(conn != null){
-            System.out.println("Conectado com sucesso");
-        } else{
-            System.out.println("Erro ao conectar" );
-        }
-
         PetDao dao = new  PetDao();
 
-//        Pet gata = new Pet("Mulher do Burro", "Dragão", 5, 1, "Burro", false);
-//        dao.inserir(gata);
+        Pet gata = new Pet("Fiona", "gatinha", 20, 1, "Sapo", false);
+        dao.inserir(gata);
 
         Pet pet = new Pet();
         pet.setNome("Marie");
@@ -33,7 +27,7 @@ public class Main {
 
         dao.atualizar(1, pet);
 
-        //dao.deletar(4);
+        dao.deletar(4);
 
         List<Pet> lista = dao.listar();
         for (int i=0;i<lista.size();i++) {

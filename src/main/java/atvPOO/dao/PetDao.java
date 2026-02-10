@@ -9,7 +9,6 @@ import java.util.List;
 
 public class PetDao implements Dao{
 
-    //INSERIR
     @Override
     public void inserir(Pet pet) {
         String sql = """
