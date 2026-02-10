@@ -18,20 +18,30 @@ public class Main {
             System.out.println("Erro ao conectar" );
         }
 
-        PetDao dao2 = new  PetDao();
+        PetDao dao = new  PetDao();
 
-//        Pet passarinho = new Pet("Céu", "Passáro", 5, 1.2, "Dedé", true);
-//        PetDao dao = new PetDao();
-//        dao.inserir(passarinho);
+//        Pet gata = new Pet("Mulher do Burro", "Dragão", 5, 1, "Burro", false);
+//        dao.inserir(gata);
 
-//        dao2.deletar(4);
+        Pet pet = new Pet();
+        pet.setNome("Marie");
+        pet.setTipo("Gata");
+        pet.setIdade(2);
+        pet.setPeso(3.8);
+        pet.setNome_do_dono("Maria");
+        pet.setEstaVacinado(true);
 
-        List<Pet> lista = dao2.listar();
+        dao.atualizar(1, pet);
+
+        //dao.deletar(4);
+
+        List<Pet> lista = dao.listar();
         for (int i=0;i<lista.size();i++) {
             if (lista.get(i) != null) {
                 System.out.println(lista.get(i).apresentar());
             }
         }
+
     }
 }
 

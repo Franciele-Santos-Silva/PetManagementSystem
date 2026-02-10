@@ -37,15 +37,12 @@ public class PetDao implements Dao{
 
     @Override
     public List<Pet> listar() {
-
         List<Pet> lista = new ArrayList<>();
         String sql = "SELECT * FROM pet";
 
-        try(
-                Connection conn = Conexao.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                ) {
-
+        try(Connection conn = Conexao.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ) {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
 
@@ -60,7 +57,6 @@ public class PetDao implements Dao{
 
                 lista.add(pet);
             }
-
         } catch (SQLException e) {
             System.out.println("Erro listar pets" +e.getMessage());
         }
@@ -88,11 +84,28 @@ public class PetDao implements Dao{
     }
 
     @Override
-    public void atualizar(Pet pet) {
+    public void atualizar(int id, Pet pet) {
         String sql = """
-                update from pet set nome=?, tipo=?, idade=?, peso=?, nome_do_dono=?, estaVacinado=? where id=? 
+                update pet set nome=?, tipo=?, idade=?, peso=?, nome_do_dono=?, estaVacinado=? where id=? 
                 """;
+
+        try(Connection conn = Conexao.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, pet.getNome());
+            stmt.setString(2, pet.getTipo());
+            stmt.setInt(3, pet.getIdade());
+            stmt.setDouble(4, pet.getPeso());
+            stmt.setString(5, pet.getNome_do_dono());
+            stmt.setBoolean(6, pet.isEstaVacinado());
+            stmt.setInt(7, id);
+
+            stmt.executeUpdate();
+
+            System.out.println("Dado atualizado com sucesso");
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao atualzar pet "+e.getMessage());
+        }
     }
-
-
 }

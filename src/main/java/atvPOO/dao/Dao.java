@@ -13,6 +13,6 @@ public interface Dao {
 
     public void deletar(int id);
 
-    public void atualizar(Pet pet);
+    public void atualizar(int id, Pet pet);
 
 }
